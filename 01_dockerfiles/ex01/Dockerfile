@@ -19,4 +19,9 @@ WORKDIR teamspeak3-server_linux_amd64
 # Exposing ports
 EXPOSE 9987/udp 30033 10011
 # Running ts3server on docker run
-ENTRYPOINT sh ts3server_minimal_runscript.sh
+CMD ./ts3server_minimal_runscript.sh
+
+# To build
+# docker build -t ex01 .
+# To run
+# docker run --rm -d -p 9987:9987/udp -p 10011:10011 -p 30033:30033 ex01

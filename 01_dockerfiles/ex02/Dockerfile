@@ -14,3 +14,6 @@ ONBUILD WORKDIR /opt/app
 ONBUILD RUN bundle install
 ONBUILD RUN rake db:migrate
 ONBUILD RUN rake db:seed
+
+# To build
+# docker build -t ex02 .
