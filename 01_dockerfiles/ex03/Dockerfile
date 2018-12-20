@@ -1,4 +1,5 @@
 FROM ubuntu:16.04
+LABEL maintainer="lbarthon@student.42.fr"
 
 # Updating default system
 RUN apt-get update -y && apt-get upgrade -y
@@ -27,3 +28,8 @@ RUN (/opt/gitlab/embedded/bin/runsvdir-start &) && gitlab-ctl reconfigure
 # Starts both ssh and gitlab, tail to let it run.
 # You can also run bash but it's not really usefull
 ENTRYPOINT service ssh start && (/opt/gitlab/embedded/bin/runsvdir-start &) && gitlab-ctl start && tail -f /dev/null
+
+# To build
+# docker build -t ex03 .
+# To run
+# docker run --rm -it -p 80:80 -p 443:443 -p 2222:22 ex03
